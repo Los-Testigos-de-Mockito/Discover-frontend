@@ -1,0 +1,149 @@
+<main>
+    <section>
+        <div  class="img">
+        </div>
+    </section>
+
+    <section class="mainregister">
+            <form [formGroup]="myForm">
+              <h1 class="register_text" style="color: #006464">Únete a la familia de Discover</h1>
+              <h3>Ya tienes una cuenta? <a routerLink="/" style="text-decoration: none;">Inicia sesión aquí</a></h3>
+              <div class="container_1">
+                <mat-form-field class="mat-form">
+                  <mat-label>Nombre</mat-label>
+                  <input matInput formControlName="name" placeholder="Ingrese nombre...">
+                  <div *ngIf="myForm.get('name')?.hasError('required') && myForm.get('name')?.touched">
+                    <span style="color: red;"> Este campo es obligatorio</span>
+                  </div>
+                </mat-form-field>
+
+                <mat-form-field class="mat-form">
+                <mat-label>ApellidoPaterno</mat-label>
+                <input matInput formControlName="apellidop" placeholder="Ingrese apellido paterno...">
+                <div *ngIf="myForm.get('apellidop')?.hasError('required') && myForm.get('apellidop')?.touched">
+                  <span style="color: red;"> Este campo es obligatorio</span>
+                </div>
+                </mat-form-field>
+              </div>
+
+            <br>
+            <br>
+
+              <div class="container_1">
+                <mat-form-field class="mat-form">
+                  <mat-label>ApellidoMaterno</mat-label>
+                  <input matInput formControlName="apellidom" placeholder="Ingrese apellido materno...">
+                  <div *ngIf="myForm.get('apellidom')?.hasError('required') && myForm.get('apellidom')?.touched">
+                    <span style="color: red;"> Este campo es obligatorio</span>
+                  </div>
+                </mat-form-field>
+              </div>
+
+              <br>
+              <br>
+
+              <div class="container_1">
+                <mat-form-field class="mat-form">
+                  <mat-label>Email</mat-label>
+                  <input matInput formControlName="email" placeholder="Ingrese email...">
+                  <div *ngIf="myForm.get('email')?.hasError('required') && myForm.get('email')?.touched">
+                    <span style="color: red;"> Este campo es obligatorio</span>
+                  </div>
+                </mat-form-field>
+                <mat-form-field class="mat-form">
+                  <mat-label>Contraseña</mat-label>
+                  <input matInput  [type]="hide ? 'password' : 'text'" type="password" formControlName="password" placeholder="Ingrese contraseña..." id="">
+                  <div *ngIf="myForm.get('password')?.hasError('required') && myForm.get('password')?.touched">
+                    <span style="color: red;"> Este campo es obligatorio</span>
+                  </div>
+                  <button
+                          mat-icon-button
+                          matSuffix
+                          (click)="hide = !hide"
+                          [attr.aria-label]="'Hide password'"
+                          [attr.aria-pressed]="hide"
+                        >
+                      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                    </button>
+                </mat-form-field>
+                </div>
+
+              <br>
+              <br>
+
+              <div class="container_1">
+
+                <mat-form-field class="mat-form" appearance="fill">
+                  <mat-label>Telefono</mat-label>
+                  <input matInput formControlName="phone" placeholder="Ingrese telefono...">
+                  <div *ngIf="myForm.get('phone')?.hasError('required') && myForm.get('phone')?.touched">
+                  <span style="color: red;"> Este campo es obligatorio</span>
+                  </div>
+                </mat-form-field>
+
+
+                <mat-form-field appearance="fill" class="mat-form">
+                  <mat-label>Dni</mat-label>
+                  <input matInput formControlName="dni" placeholder="Ingrese dni...">
+                  <div *ngIf="myForm.get('dni')?.hasError('required') && myForm.get('dni')?.touched">
+                    <span style="color: red;"> Este campo es obligatorio</span>
+                  </div>
+                </mat-form-field>
+
+              </div>
+
+              <div class="container_1">
+                <mat-form-field appearance="fill" class="mat-form">
+                  <mat-label>Fecha de nacimiento</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="fecha_nacimiento">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                  <div *ngIf="myForm.get('fecha_nacimiento')?.hasError('required') && myForm.get('fecha_nacimiento')?.touched">
+                    <span style="color: red;"> Este campo es obligatorio</span>
+                  </div>
+                </mat-form-field>
+              </div>
+
+
+              <div class="container_1">
+                <mat-form-field appearance="fill" class="mat-form">
+                  <mat-label>Link foto DNI</mat-label>
+                  <input matInput formControlName="linkPhotoDni" placeholder="Ingrese URL..." id="image-input">
+                  <div *ngIf="myForm.get('linkPhotoDni')?.hasError('required') && myForm.get('linkPhotoDni')?.touched">
+                    <span style="color: red;"> Este campo es obligatorio</span>
+                  </div>
+                </mat-form-field>
+
+                <button (click)="changeImageDni()" mat-raised-button color="primary" id="change-button">Vista Previa</button>
+              </div>
+              <div id="my-div" class="my-div" style="background-image: url({{dniFoto}});"></div>
+
+              <div class="container_1 margin-top">
+                <mat-form-field appearance="fill" class="mat-form">
+                  <mat-label>Link foto de perfil</mat-label>
+                  <input matInput formControlName="linkPhotoProfile" placeholder="Ingrese URL..." id="image-input2">
+                  <div *ngIf="myForm.get('linkPhotoProfile')?.hasError('required') && myForm.get('linkPhotoProfile')?.touched">
+                    <span style="color: red;"> Este campo es obligatorio</span>
+                  </div>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" id="change-button2" (click)="changeImagePerfil()">Vista Previa</button>
+              </div>
+              <div id="my-div2" class="my-div2" style="background-image: url({{perfilFoto}});"></div>
+
+
+              <div class="button_register">
+                <button
+                  class="button_in"
+                  mat-raised-button
+                  (click)="saveUsuario()"
+                  color="primary"
+                  [disabled]="myForm.invalid"
+                >
+                  Registrar
+                </button>
+              </div>
+            </form>
+    </section>
+</main>

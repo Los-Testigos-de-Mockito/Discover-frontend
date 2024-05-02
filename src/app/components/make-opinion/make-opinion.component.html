@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+<app-navbar [usermain]="usermain"></app-navbar>
+<div class="searcher-container"></div>
+
+<div>
+    <button class="button-s" mat-raised-button color="warn" routerLink="/visualizar/{{idinmueble}}">Regresar</button>
+
+    <h2 class="title">Registra tu reseña del inmueble rentado</h2>
+
+    <form class="form-opinion" [formGroup]="myForm">
+        <div class="user-info">
+          <h3 class="nav-perfil" style="background-image: url({{usermain.linkFotoPerfil}});" href=""></h3>
+          <div class="user-info-text">
+              <h3 class="title-name">{{usermain.name}} {{usermain.apellidoPaterno}} {{usermain.apellidoMaterno}}</h3>
+              <h2 class="sub-title">Escribe tu reseña</h2>
+          </div>
+        </div>
+        <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="firstFormGroup">
+              <form [formGroup]="myForm">
+                <ng-template matStepLabel>Escribe tu comentario...</ng-template>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Ingrese su comentario...</mat-label>
+                    <input matInput formControlName="descripcion" placeholder="Ingrese tu comentario..." >
+                    <div *ngIf="myForm.get('descripcion')?.hasError('required') && myForm.get('descripcion')?.touched">
+                      <span style="color: red;"> Este campo es obligatorio</span>
+                  </div>
+                </mat-form-field>
+
+                <div>
+                  <button mat-button matStepperNext>Siguiente</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup">
+              <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Calificación</ng-template>
+                <p>¿Cúanta puntuación le pones a este inmueble?</p>
+                <ngb-rating formControlName="generalRating" [max]="5"></ngb-rating>
+                <p>Ubicación</p>
+                <ngb-rating formControlName="locationRating" [max]="5" ></ngb-rating>
+                <p>Instalaciones</p>
+                <ngb-rating formControlName="facilitiesRating" [max]="5" ></ngb-rating>
+                <p>Seguridad</p>
+                <ngb-rating formControlName="securityRating" [max]="5" ></ngb-rating>
+
+                <div>
+                  <button mat-button matStepperPrevious>Anterior</button>
+                  <button mat-button matStepperNext >Siguiente</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Hecho</ng-template>
+            
+              <br>
+              <h2 class="confirmation">Estas seguro que quieres enviar esta reseña?</h2>
+              <div>
+                <button mat-button matStepperPrevious>Anterior</button>
+                <button mat-button (click)="saveresena()" routerLink="/visualizar/{{idinmueble}}">Enviar</button>
+              </div>
+            </mat-step>
+        </mat-stepper>
+
+
+
+    </form>
+
+
+</div>

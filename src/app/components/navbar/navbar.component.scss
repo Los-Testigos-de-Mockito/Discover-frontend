@@ -1,0 +1,60 @@
+.nav-logo{
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.nav-link{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+text-align: center;
+margin: 0 20px;
+text-decoration: none;
+color: #FFFFFF;
+}
+.nav-perfil{
+    border-radius: 100%;
+
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    margin: 0 20px;
+    border: none;
+    cursor: pointer;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+  z-index: 1;
+  right: 20px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 18px;
+}
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

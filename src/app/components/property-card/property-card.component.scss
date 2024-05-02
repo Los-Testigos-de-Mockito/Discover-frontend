@@ -1,0 +1,9 @@
+.property-card{
+    max-width: 400px;
+    margin:10px;
+}
+.img-header-card {
+    background-size: cover;
+}
+.blur-in{animation:blur-in 1s linear both} @keyframes blur-in{0%{filter:blur(12px);opacity:0}100%{filter:blur(0);opacity:1}}
+

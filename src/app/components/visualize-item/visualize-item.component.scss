@@ -1,0 +1,164 @@
+body{
+  margin: 10px 80px;
+}
+
+.title_datos{
+  margin-top: 30px;
+  font-size:30px;
+
+}
+.scale-up-bottom{animation:scale-up-bottom 1s; } @keyframes scale-up-bottom{0%{transform:scale(.5);transform-origin:center bottom}100%{transform:scale(1);transform-origin:center bottom}}
+
+.blur-in{animation:blur-in 1s linear both} @keyframes blur-in{0%{filter:blur(12px);opacity:0}100%{filter:blur(0);opacity:1}}
+
+.start-property{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+.start-property{
+  font-weight: bold;
+}
+.photos-property{
+  margin: 10px 0px;
+}
+.grid-photo{
+  border-radius: 30px;
+}
+.star{
+  color: #F9D978;
+}
+.cant-reviews{
+  font-size: 20px;
+}
+
+.photos-property{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+  flex-wrap: wrap;
+}
+.photo{
+  width: 350px;
+  height: 250px;
+  border-radius: 15px;
+  margin: 5px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.mid-property{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container1{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 10px 0px;
+}
+.stars svg{
+  margin-left: 7px;
+  margin-right: 7px;
+}
+.main-features{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-features div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.caract_text{
+  margin-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.description{
+  margin:30px 10px;
+  padding: 20px;
+  background-color: #F4F0F0;
+  border-radius: 10px;
+}
+.features-container{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.features-container div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 20px;
+}
+
+
+
+.map-google{
+  padding: 20px 0px;
+}
+.map-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.contact-data{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.contact-photo{
+  margin: 10px 20px;
+  border-radius: 100px;
+  width: 200px;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #B7AD92;
+}
+.contact-info{
+  margin-left: 10px;
+}
+.contact-phone{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.container-comments{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.card-comment {
+  max-width: 350px;
+  background-color: #B7AD92;
+  margin: 10px;
+}
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+.comment-add{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.example-card {
+  max-width: 400px;
+}

@@ -1,0 +1,44 @@
+.title_text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+.title_text h3{
+  font-size: 20px;
+}
+.title_text h1{
+  font-size: 35px;
+}
+.photo_link{
+  padding: 200px;
+  border-radius: 100%;
+  background-color: #e30b22;
+  flex-wrap: wrap;
+  background-size: cover;
+}
+.example-full-width {
+  width: 30%;
+}
+.example-full-width-email {
+  width: 60%;
+}
+.example-full-width-date{
+  width: 48%;
+}
+.info_usuario{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+h2{
+  margin: 20px 50px;
+}

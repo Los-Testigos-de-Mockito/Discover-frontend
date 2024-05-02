@@ -1,0 +1,132 @@
+<app-navbar [usermain]="usermain"></app-navbar>
+<div class="searcher-container d-flex align-items-center justify-content-center flex-column">
+    <h1 class="searcher-tittle">Bienvenido {{usermain.name}} {{usermain.apellidoPaterno}}  {{usermain.apellidoMaterno}} a Discover</h1>
+    <input (keyup)="filtersearch($event)" type="text" style="border-radius: 20px;" class="form-control w-75" id="exampleFormControlInput1" placeholder="Ingrese departamento, distrito o provincia">
+</div>
+<main>
+  <div>
+    <div class="">
+        <section class="main">
+<div class="d-flex flex-row justify-content-around" style="margin-top: 50px; padding-bottom: 50px;">
+    <div>
+        <h2 style="font-size: 25px; text-align: center; font-weight: bold; color: #00C9D1;">Filtra tus <br>características</h2>
+        <div style="background-color: #48484812; padding: 20px; border-radius: 15px;" class="d-flex flex-column">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Tipo de inmueble</mat-label>
+                <mat-select [(value)]="property_Filter">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let property of properties_array" [value]="property">
+                    {{property}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Tipo de alojamiento</mat-label>
+                <mat-select [(value)]="accommodation_Filter">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let accomodation of accommodations_array" [value]="accomodation">
+                    {{accomodation}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <div class="d-flex flex-column align-items-center ">
+                <mat-label>Cant. minima de Huespedes: <b>{{guests_Filter}}</b></mat-label>
+                <br>
+                <mat-slider
+                    class="example-margin"
+                    color="primary"
+                    [disabled]=false
+                    [max]=20
+                    [min]=0
+                    [step]=1
+                    [discrete]=true
+                    [showTickMarks]=false>
+                    <input matSliderThumb [(value)]="guests_Filter">
+                </mat-slider>
+            </div>
+            <div class="d-flex flex-column align-items-center ">
+                <mat-label>Cant. minima de Habitaciones: <b>{{bedrooms_Filter}}</b></mat-label>
+                <br>
+                <mat-slider
+                    class="example-margin"
+                    color="primary"
+                    [disabled]=false
+                    [max]=20
+                    [min]=0
+                    [step]=1
+                    [discrete]=true
+                    [showTickMarks]=false>
+                    <input matSliderThumb [(value)]="bedrooms_Filter">
+                </mat-slider>
+            </div>
+            <div class="d-flex flex-column align-items-center ">
+                <mat-label>Cant. minima de Baños: <b>{{bathrooms_Filter}}</b></mat-label>
+                <br>
+                <mat-slider
+                    class="example-margin"
+                    color="primary"
+                    [disabled]=false
+                    [max]=10
+                    [min]=0
+                    [step]=1
+                    [discrete]=true
+                    [showTickMarks]=false>
+                    <input matSliderThumb [(value)]="bathrooms_Filter">
+                </mat-slider>
+            </div>
+            <mat-form-field appearance="fill">
+                <mat-label>Servicios</mat-label>
+                <mat-select multiple [(value)]="services_Filter">
+                    <mat-option *ngFor="let service of services_array" [value]="service">{{service}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Comodidades</mat-label>
+                <mat-select multiple [(value)]="modcons_Filter">
+                    <mat-option *ngFor="let modcon of modcons_array" [value]="modcon">{{modcon}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Características</mat-label>
+                <mat-select multiple [(value)]="features_Filter">
+                    <mat-option *ngFor="let feature of features_array" [value]="feature">{{feature}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Precio</mat-label>
+                <mat-select [(value)]="price_Filter">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let price of price_array" [value]="price">
+                    {{price}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="d-flex flex-row align-items-center justify-content-center align-content-around">
+                <button (click)="applyFilter()" mat-raised-button style="margin: 5px 10%; padding: 0 40px; border-radius: 5px; background-color: #006464; color: white;">Aplicar</button>
+                <button (click)="eliminarFilters()" mat-raised-button style="margin: 5px 10%; padding: 0 40px; border-radius: 5px; background-color: #006464; color: white;">Eliminar</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="d-flex justify-content-around flex-column align-items-center" *ngIf="filters else filtrosready">
+        <h1 style="margin:20px;font-size: 35px; font-weight: bold; color: #006464;">Algunos inmuebles para ti</h1>
+        <div class="cards">
+            <app-property-card [property]="properties[random_numbers[0]]"></app-property-card>
+            <app-property-card [property]="properties[random_numbers[1]]"></app-property-card>
+            <app-property-card [property]="properties[random_numbers[2]]"></app-property-card>
+        </div>
+    </div>
+
+    </div>
+  </section>
+    <ng-template #filtrosready >
+        <div class="d-flex justify-content-around flex-row flex-wrap align-items-center">
+            <app-property-card *ngFor="let filter of properties_filter" [property]="filter"></app-property-card>
+        </div>
+    </ng-template>
+  </div>
+</div>
+</main>

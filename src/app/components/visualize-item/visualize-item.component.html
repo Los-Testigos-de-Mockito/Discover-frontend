@@ -1,0 +1,94 @@
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+</head>
+<app-navbar [usermain]="usermain"></app-navbar>
+<body>
+  <main>
+    <h1 class="title_datos scale-up-bottom">Datos del inmueble</h1>
+    <div class="start-property scale-up-bottom">
+      <p><span class="ubication">{{property.address}}</span> - <span>{{property.timeAntiquity}}</span></p>
+      <button mat-raised-button color="primary" routerLink="/alquiler/{{property.id}}"> Alquilar este inmueble</button>
+    </div>
+
+    <div class="photos-property">
+      <ng-container *ngFor="let item of property.inmuebleFotoList" >
+        <div class="photos-container">
+          <div style="background-image: url({{item}});" class="photo">
+          </div>
+        </div>
+      </ng-container>
+
+    </div>
+    <div class="mid-property">
+      <div class="container1">
+      <h1>Precio de alquiler: S/. <span class="price">{{property.price}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+      </div>
+      <div class="container2">
+      </div>
+    </div>
+    <div class="main-features">
+      <div class="features_guests"><span class="material-symbols-outlined">group</span><p class="caract_text">&nbsp;<span>{{property.numGuests}}</span>&nbsp;&nbsp;huésped(s)</p></div><!--Pa cambiar con el ts-->
+      <div class="features_bedrooms"><span class="material-symbols-outlined">bed</span><p class="caract_text">&nbsp;<span>{{property.numBedrooms}}</span>&nbsp;&nbsp;dormitorio(s)</p></div><!--Pa cambiar con el ts-->
+      <div class="features_bathrooms"><span class="material-symbols-outlined">wc</span><p class="caract_text">&nbsp;<span>{{property.numBathrooms}}</span>&nbsp;&nbsp;baño(s)</p></div><!--Pa cambiar con el ts-->
+      <div class="features_area"><span class="material-symbols-outlined">home</span><p class="caract_text">&nbsp;<span>{{property.squareMeter}}</span>&nbsp;&nbsp;m2</p></div><!--Pa cambiar con el ts-->
+    </div>
+    <div class="description">
+      <h2>Descripción</h2>
+      <p><span>{{property.description}}</span></p>
+    </div>
+    <div class="features">
+      <h1>Qué ofrece este inmueble</h1>
+      <div class="features-container">
+        <div *ngFor="let item of property.listCaracteristaInmuebleIcons"><h4><span class="material-symbols-outlined">{{item.icon}}<!--Pa cambiar con el ts--></span>&nbsp;<span><!--Pa cambiar con el ts-->&nbsp;&nbsp;{{item.nombre}}</span></h4></div>
+      </div>
+    </div>
+    <div class="map-google">
+      <h1>Ubicación</h1>
+      <div class="map-container">
+        <!--Pa cambiar con el ts-->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3899.7439963434617!2d-77.010172026006!3d-12.197814744729307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b9e0f449b10f%3A0x876705c16ffc17d7!2sUPC%20Campus%20Villa!5e0!3m2!1ses!2spe!4v1682997082705!5m2!1ses!2spe" width="900" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+    <div class="contact">
+      <h1>Contacto</h1>
+      <div class="contact-data">
+        <div class="contact-photo">
+          <div class="contact-photo" style="background-image: url({{property.photoOwner}});"></div>
+        </div>
+        <div class="contact-info">
+          <h3><span>{{nombrecompleto()}}</span></h3>
+         <p>Fecha de registro en la aplicación:&nbsp;<span>{{property.userContact.dateAfiiliation}}<!--Pa cambiar con el ts--></span></p>
+         <p class="contact-phone"><span class="material-symbols-outlined">phone</span>&nbsp;<span>{{property.userContact.telephone}}</span><!--Pa cambiar con el ts--></p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="coments">
+    <h1>Reseñas de la comunidad</h1>
+    <div class="container-comments">
+      <div *ngFor="let item of property.listOpinions" class="">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title></mat-card-title>
+            <mat-card-subtitle>Puntuación: {{item.stars}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{item.description}}</p>
+            <p></p>
+          </mat-card-content>
+          <mat-card-actions>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+    <div class="comment-add">
+      <h4>¿Has estado en este inmueble y quieres dar tu opinión sobre él?</h4>
+      <div>
+        <button *ngIf="!EsPropietario" mat-raised-button color="primary" routerLink="/resena/{{property.id}}">AGREGAR RESEÑA</button>
+        <button *ngIf="EsPropietario" mat-raised-button color="warn" (click)="DeleteInmueble()">ELIMINAR INMUEBLE</button>
+      </div>
+    </div>
+  </div>
+</body>

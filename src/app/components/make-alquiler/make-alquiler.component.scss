@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.title_alquiler{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  margin-bottom: 50px;
+}
+.title_alquiler h1{
+  font-weight: bold;
+  font-size: 30px;
+  color:black;
+}
+.datos_compra{
+  display: flex;
+  justify-content: space-evenly	;
+  align-items: center;
+}
+
+body{
+  background-image: url(https://i.postimg.cc/HkG01ttW/picography-view-of-a-city-skyline-across-the-water.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  height: 89.55vh;
+}
+
+.input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #000;
+}
+
+
+.caract_text{
+  color:black;
+  font-weight: bold;
+}
+
+.section_compra{
+  padding: 20px;
+  border-radius: 50px;
+  border: solid black 2px ;
+  text-align: center;
+  backdrop-filter: blur(15px);
+}
+
+.div_button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.div_button button{
+  border-radius: 15px;
+  padding: 10px 20px;
+  border-color: #789626;
+  border-width: 5px;
+  background-color:#BEED3B;
+  transition: 0.5s all ease;
+}
+
+.div_button button:hover{
+  transition: 0.5s all ease;
+  border-color: #789626;
+  background-color:#789626;
+  color: white;
+}

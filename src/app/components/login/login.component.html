@@ -1,0 +1,53 @@
+<main>
+  <section>
+    <div class="imagen"></div>
+  </section>
+  <section class="mainLogin">
+    <div class="central">
+      <img src="https://i.postimg.cc/6yPynnT5/image.png" />
+      <h1 style="color: #00c9d1">Empieza a vivir la experiencia Discover</h1>
+      <h3 class="login_text" style="color: #beed3b">
+        Inicia sesión para comenzar
+      </h3>
+
+      <form class="example-form" [formGroup]="logInForm">
+        <mat-form-field class="example-full-width">
+          <mat-label>Ingrese su correo electrónico</mat-label>
+          <input
+            matInput
+            placeholder="Ej. abcdefg@ejem.com"
+            formControlName="email"
+          />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Ingrese su contraseña</mat-label>
+          <input
+            matInput
+            placeholder="Ej. *******"
+            [type]="hidePassword ? 'password' : 'text'"
+            formControlName="password"
+          />
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" >
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+
+      <button
+        class="button_in"
+        mat-raised-button
+        (click)="clickButton()"
+        color="primary"
+        [disabled]="logInForm.invalid"
+      >
+        INGRESAR
+      </button>
+      <div class="seccionRegistro">
+        <h5 class="Cuenta_text" style="color: black">
+          No tienes cuenta?&nbsp;&nbsp;
+        </h5>
+        <a class="RegisterConnection" routerLink="/register"><h5 style="color: #00c9d1">&nbsp;&nbsp;Registrate aquí</h5> </a>
+      </div>
+    </div>
+  </section>
+</main>

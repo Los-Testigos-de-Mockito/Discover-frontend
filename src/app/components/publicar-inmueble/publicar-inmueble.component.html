@@ -1,0 +1,256 @@
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<div class="body">
+  <h1 class="title">A un paso más de que todos vean tu inmueble, cuentanos más de él</h1>
+<div class="body">
+
+  <a class="link_volver" routerLink="/home"><span class="material-symbols-outlined">arrow_back</span><p> Volver a los inmuebles</p></a>
+  <form class="formulario" [formGroup]="formPublicar">
+
+    <div class="divisor">
+        <div class="subTitulo"><h2>Dirección</h2></div>
+        <mat-form-field class="formField">
+            <mat-label>Dirección</mat-label>
+            <input matInput type="text" formControlName="direccion" placeholder="Ingrese dirección del inmueble">
+            <div *ngIf="formPublicar.get('direccion')?.hasError('required') && formPublicar.get('direccion')?.touched">
+                <span style="color: red;">Este campo es obligatorio</span>
+            </div>
+        </mat-form-field>
+        <mat-form-field class="formField">
+            <mat-label>Superficie</mat-label>
+            <input matInput type="number" formControlName="m2_cuadrados" placeholder="Ingrese superfie">
+            <span matTextSuffix> m²</span>
+            <div *ngIf="formPublicar.get('m2_cuadrados')?.hasError('required') && formPublicar.get('m2_cuadrados')?.touched">
+                <span style="color: red;">Este campo es obligatorio</span>
+            </div>
+        </mat-form-field>
+    </div>
+
+    <div class="divisor">
+        <mat-form-field class="formField">
+            <mat-label>¿Cómo defines tu espacio?</mat-label>
+            <mat-select formControlName="definicion" placeholder="Ingrese la definición" [(value)]="type_property">
+                <mat-option value="Departamento">Departamento</mat-option>
+                <mat-option value="Casa">Casa</mat-option>
+            </mat-select>
+
+        </mat-form-field>
+
+        <mat-form-field class="formField">
+            <mat-label>Tipo de Alojamiento</mat-label>
+            <mat-select formControlName="tipoAlojamiento" placeholder="Ingrese el tipo de alojamiento" [(value)]="shared_room">
+                <mat-option value="Habitacion Privada">Habitacion Privada</mat-option>
+                <mat-option value="Habitacion Compartida">Habitacion Compartida</mat-option>
+                <mat-option value="Alojamiento Entero">Alojamiento Entero</mat-option>
+            </mat-select>
+
+        </mat-form-field>
+    </div>
+
+    <div class="divisor">
+        <div class="subTitulo"><h2>Ubicación</h2></div>
+        <mat-form-field class="formField">
+            <mat-label>Departamento</mat-label>
+            <mat-select formControlName="departamento" placeholder="Ingrese el departamento" [(value)]="department"> 
+                <mat-option value="Lima">Lima</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="formField">
+            <mat-label>Provincia</mat-label>
+            <mat-select formControlName="provincia" placeholder="Ingrese la provincia" [(value)]="province">
+                <mat-option value="Lima">Lima</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="formField">
+            <mat-label>Distrito</mat-label>
+            <mat-select formControlName="district" placeholder="Ingrese el distrito" [(value)]="district">
+                <mat-option value="Lima">Lima</mat-option>
+                <mat-option value="Ancon">Ancon</mat-option>
+                <mat-option value="Ate">Ate</mat-option>
+                <mat-option value="Barranco">Barranco</mat-option>
+                <mat-option value="Breña">Breña</mat-option>
+                <mat-option value="Carabayllo">Carabayllo</mat-option>
+                <mat-option value="Chaclacayo">Chaclacayo</mat-option>
+                <mat-option value="Chorrillos">Chorrillos</mat-option>
+                <mat-option value="Cieneguilla">Cieneguilla</mat-option>
+                <mat-option value="Comas">Comas</mat-option>
+                <mat-option value="El Agustino">El Agustino</mat-option>
+                <mat-option value="Independencia">Independencia</mat-option>
+                <mat-option value="Jesus Maria">Jesus Maria</mat-option>
+                <mat-option value="La Molina">La Molina</mat-option>
+                <mat-option value="La Victoria">La Victoria</mat-option>
+                <mat-option value="Lince">Lince</mat-option>
+                <mat-option value="Los Olivos">Los Olivos</mat-option>
+                <mat-option value="Lurigancho">Lurigancho</mat-option>
+                <mat-option value="Lurin">Lurin</mat-option>
+                <mat-option value="Magdalena del Mar">Magdalena del Mar</mat-option>
+                <mat-option value="Miraflores">Miraflores</mat-option>
+                <mat-option value="Pachacamac">Pachacamac</mat-option>
+                <mat-option value="Pucusana">Pucusana</mat-option>
+                <mat-option value="Pueblo Libre">Pueblo Libre</mat-option>
+                <mat-option value="Puente Piedra">Puente Piedra</mat-option>
+                <mat-option value="Punta Hermosa">Punta Hermosa</mat-option>
+                <mat-option value="Punta Negra">Punta Negra</mat-option>
+                <mat-option value="Rimac">Rimac</mat-option>
+                <mat-option value="San Bartolo">San Bartolo</mat-option>
+                <mat-option value="San Borja">San Borja</mat-option>
+                <mat-option value="San Isidro">San Isidro</mat-option>
+                <mat-option value="San Juan de Lurigancho">San Juan de Lurigancho</mat-option>
+                <mat-option value="San Juan de Miraflores">San Juan de Miraflores</mat-option>
+                <mat-option value="San Luis">San Luis</mat-option>
+                <mat-option value="San Martin de Porres">San Martin de Porres</mat-option>
+                <mat-option value="San Miguel">San Miguel</mat-option>
+                <mat-option value="Santa Anita">Santa Anita</mat-option>
+                <mat-option value="Santa Maria del Mar">Santa Maria del Mar</mat-option>
+                <mat-option value="Santa Rosa">Santa Rosa</mat-option>
+                <mat-option value="Santiago de Surco">Santiago de Surco</mat-option>
+                <mat-option value="Surquillo">Surquillo</mat-option>
+                <mat-option value="Villa El Salvador">Villa El Salvador</mat-option>
+                <mat-option value="Villa Maria del Triunfo">Villa Maria del Triunfo</mat-option>
+            </mat-select>
+            <div *ngIf="formPublicar.get('id_ubigeo')?.hasError('id_ubigeo') && formPublicar.get('distrito')?.touched">
+                <span style="color: red;">Este campo es obligatorio</span>
+            </div>
+        </mat-form-field>
+    </div>
+
+    <div class="divisor">
+        <mat-form-field class="formField">
+            <mat-label>Huespedes</mat-label>
+            <input matInput type="number" formControlName="n_huespedes" placeholder="Número de Huespedes">
+            <span matTextPrefix>N°&nbsp;</span>
+            <div *ngIf="formPublicar.get('n_huespedes')?.hasError('required') && formPublicar.get('n_huespedes')?.touched">
+                <span style="color: red;">Este campo es obligatorio</span>
+            </div>
+        </mat-form-field>
+
+        <mat-form-field class="formField">
+            <mat-label>Dormitorios</mat-label>
+            <input matInput type="number" formControlName="n_dormitorios" placeholder="Número de Habitaciones">
+            <div *ngIf="formPublicar.get('n_dormitorios')?.hasError('required') && formPublicar.get('n_dormitorios')?.touched">
+                <span style="color: red;">Este campo es obligatorio</span>
+            </div>
+        </mat-form-field>
+
+        <mat-form-field class="formField">
+            <mat-label>Baños</mat-label>
+            <input matInput type="number" formControlName="n_banios" placeholder="Número de Baños">
+            <div *ngIf="formPublicar.get('n_banios')?.hasError('required') && formPublicar.get('n_banios')?.touched">
+                <span style="color: red;">Este campo es obligatorio</span>
+            </div>
+        </mat-form-field>
+    </div>
+
+    <div class="divisor">
+        <mat-form-field class="formField">
+            <mat-label>Tiempo de Antiguedad</mat-label>
+            <mat-select formControlName="tiempo_antiguedad" placeholder="Ingrese el tiempo de antiguedad" [(value)]="tiempo_antiguedad">
+                <mat-option value="Estreno">Estreno</mat-option>
+                <mat-option value="Menos de 1 año">Menos de 1 año</mat-option>
+                <mat-option value="Más de 1 año">Más de 1 año</mat-option>
+                <mat-option value="Más de 2 años">Más de 2 años</mat-option>
+                <mat-option value="Más de 3 años">Más de 3 años</mat-option>
+                <mat-option value="Más de 5 años">Más de 5 años</mat-option>
+                <mat-option value="Más de 10 años">Más de 10 años</mat-option>
+                <mat-option value="Más de 20 años">Más de 20 años</mat-option>
+                <mat-option value="Más de 30 años">Más de 30 años</mat-option>
+                <mat-option value="Más de 40 años">Más de 40 años</mat-option>
+                <mat-option value="Más de 50 años">Más de 50 años</mat-option>
+            </mat-select>
+            <div *ngIf="formPublicar.get('tiempo_antiguedad')?.hasError('required') && formPublicar.get('tiempo_antiguedad')?.touched">
+                <span style="color: red;">Este campo es obligatorio</span>
+            </div>
+        </mat-form-field>
+    </div>
+
+
+    <div class="divisor">
+        <div class="subTitulo"><h2>Servicios</h2></div>
+        <mat-checkbox class="check" id="1" [(ngModel)]="isChecked" (change)="onCheckboxChange(0)">Wi-Fi</mat-checkbox>
+        <mat-checkbox class="check" id="2" [(ngModel)]="isChecked" (change)="onCheckboxChange(1)">Cocina</mat-checkbox>
+        <mat-checkbox class="check" id="3" [(ngModel)]="isChecked" (change)="onCheckboxChange(2)">Lavadora</mat-checkbox>
+        <mat-checkbox class="check" id="4" [(ngModel)]="isChecked" (change)="onCheckboxChange(3)">Zona de Trabajo</mat-checkbox>
+        <mat-checkbox class="check" id="5" [(ngModel)]="isChecked" (change)="onCheckboxChange(4)">Estacionamiento</mat-checkbox>
+        <mat-checkbox class="check" id="6" [(ngModel)]="isChecked" (change)="onCheckboxChange(5)">Aire Acondicionado</mat-checkbox>
+        <mat-checkbox class="check" id="7" [(ngModel)]="isChecked" (change)="onCheckboxChange(6)">TV</mat-checkbox>
+        <mat-checkbox class="check" id="8" [(ngModel)]="isChecked" (change)="onCheckboxChange(7)">Estacionamiento de pago en las instalaciones</mat-checkbox>
+    </div>
+
+    <div class="divisor">
+        <div class="subTitulo"><h2>Comodidades</h2></div>
+        <mat-checkbox class="check" id="9"  [(ngModel)]="isChecked" (change)="onCheckboxChange(8)">Piscina</mat-checkbox>
+        <mat-checkbox class="check" id="10" [(ngModel)]="isChecked" (change)="onCheckboxChange(9)">Terraza</mat-checkbox>
+        <mat-checkbox class="check" id="11" [(ngModel)]="isChecked" (change)="onCheckboxChange(10)">Parrilla</mat-checkbox>
+        <mat-checkbox class="check" id="12" [(ngModel)]="isChecked" (change)="onCheckboxChange(11)">Zona de comida al aire libre</mat-checkbox>
+        <mat-checkbox class="check" id="13" [(ngModel)]="isChecked" (change)="onCheckboxChange(12)">Jacuzzi</mat-checkbox>
+        <mat-checkbox class="check" id="14" [(ngModel)]="isChecked" (change)="onCheckboxChange(13)">Lugar para hacer fogata</mat-checkbox>
+        <mat-checkbox class="check" id="15" [(ngModel)]="isChecked" (change)="onCheckboxChange(14)">Mesa de billar</mat-checkbox>
+        <mat-checkbox class="check" id="16" [(ngModel)]="isChecked" (change)="onCheckboxChange(15)">Chimenea interior</mat-checkbox>
+        <mat-checkbox class="check" id="17" [(ngModel)]="isChecked" (change)="onCheckboxChange(16)">Piano</mat-checkbox>
+        <mat-checkbox class="check" id="18" [(ngModel)]="isChecked" (change)="onCheckboxChange(17)">Equipo para hacer ejercicio</mat-checkbox>
+        <mat-checkbox class="check" id="19" [(ngModel)]="isChecked" (change)="onCheckboxChange(18)">Acceso al lago</mat-checkbox>
+        <mat-checkbox class="check" id="20" [(ngModel)]="isChecked" (change)="onCheckboxChange(19)">Acceso a la playa</mat-checkbox>
+        <mat-checkbox class="check" id="21" [(ngModel)]="isChecked" (change)="onCheckboxChange(20)">Ducha exterior</mat-checkbox>
+    </div>
+
+    <div class="divisor">
+        <div class="subTitulo"><h2>Elementos de seguridad</h2></div>
+        <mat-checkbox class="check" id="22" [(ngModel)]="isChecked" (change)="onCheckboxChange(21)">Detector de humo</mat-checkbox>
+        <mat-checkbox class="check" id="23" [(ngModel)]="isChecked" (change)="onCheckboxChange(22)">Botiquin de primeros auxilios</mat-checkbox>
+        <mat-checkbox class="check" id="24" [(ngModel)]="isChecked" (change)="onCheckboxChange(23)">Extintor de incendios</mat-checkbox>
+    </div>
+
+    <div class="divisor">
+        <div class="subTitulo"><h2>Fotos</h2></div>
+        <mat-form-field appearance="fill" class="mat-form">
+            <mat-label>Link foto de inmueble</mat-label>
+            <input matInput formControlName="linkFotoInmueble" placeholder="Ingrese URL..." id="image-input2">
+          </mat-form-field>
+
+          <button mat-raised-button class="m-2" color="primary" id="change-button2" (click)="changeImageinmueble()">Vista Previa</button>
+          <button mat-raised-button class="m-2" color="primary" id="change-button2" (click)="addImage()">Añadir Imagen</button>
+        
+    </div>
+
+    <div id="my-div2" class="my-div2" style="background-image: url({{foto_show}});"></div>
+
+    <div class="divisor">
+        <div class="subTitulo"><h2>Caracteristicas</h2></div>
+        <mat-checkbox class="check" id="25" [(ngModel)]="isChecked" (change)="onCheckboxChange(24)">Tranquilo</mat-checkbox>
+        <mat-checkbox class="check" id="26" [(ngModel)]="isChecked" (change)="onCheckboxChange(25)">Ideal para familias</mat-checkbox>
+        <mat-checkbox class="check" id="27" [(ngModel)]="isChecked" (change)="onCheckboxChange(26)">Excepcional</mat-checkbox>
+        <mat-checkbox class="check" id="28" [(ngModel)]="isChecked" (change)="onCheckboxChange(27)">Central</mat-checkbox>
+        <mat-checkbox class="check" id="29" [(ngModel)]="isChecked" (change)="onCheckboxChange(28)">Espacioso</mat-checkbox>
+        <mat-checkbox class="check" id="30" [(ngModel)]="isChecked" (change)="onCheckboxChange(29)">Elegante</mat-checkbox>
+    </div>
+
+    <div class="divisor">
+        <div class="subTitulo"><h2>Descripción</h2></div>
+        <mat-form-field class="formField">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput type="text" formControlName="descripcion" placeholder="Ingrese una descripción para el inmueble"></textarea>
+        </mat-form-field>
+    </div>
+
+    <div class="input">
+        <mat-form-field class="formField">
+            <mat-label>Precio</mat-label>
+            <input matInput type="number" formControlName="precio" placeholder="Costo en soles">
+            <span matTextPrefix>S/.&nbsp;</span>
+            <span matTextSuffix>.00 al mes</span>
+            <div *ngIf="formPublicar.get('precio')?.hasError('required') && formPublicar.get('precio')?.touched">
+                <span style="color: red;">Este campo es obligatorio</span>
+            </div>
+        </mat-form-field>
+    </div>
+
+    <button mat-stroked-button class="boton" (click)="publicarInmueble()" [disabled]="formPublicar.invalid">Publicar Inmueble</button>
+    <button mat-stroked-button color="warn" class="boton" (click)="volverHome()">Cancelar</button>
+
+</form>
+</div>
+
+

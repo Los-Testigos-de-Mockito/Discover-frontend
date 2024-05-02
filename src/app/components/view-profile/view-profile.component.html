@@ -1,0 +1,50 @@
+<app-navbar [usermain]="usermain"></app-navbar>
+<body>
+  <main>
+    <div class="title_text">
+      <h3>Perfil de usuario</h3>
+      <h1>Bienvenid@ <span>{{usermain.name}} {{usermain.apellidoPaterno}} {{usermain.apellidoMaterno}}</span></h1>
+    </div>
+    <section class="info_usuario">
+      <div class="photo_link" style="background-image: url({{usermain.linkFotoPerfil}});">
+
+      </div>
+      <div class="info_text">
+        <div class="container">
+            <mat-form-field class="example-full-width">
+              <mat-label>Nombre Completo</mat-label>
+              <input matInput placeholder="" value="{{usermain.name}}" readonly="true">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Apellido Paterno:</mat-label>
+              <input matInput placeholder="" value="{{usermain.apellidoPaterno}}" readonly="true">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Apellido Materno</mat-label>
+              <input matInput placeholder="" value="{{usermain.apellidoMaterno}}" readonly="true">
+            </mat-form-field>
+        </div>
+        <div class="container">
+          <mat-form-field class="example-full-width">
+            <mat-label>DNI</mat-label>
+            <input matInput placeholder="" value="{{usermain.dni}}" readonly="true">
+          </mat-form-field>
+          <mat-form-field class="example-full-width-email">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput placeholder="" value="{{usermain.email}}" readonly="true">
+          </mat-form-field>
+        </div>
+        <div class="container">
+          <mat-form-field class="example-full-width-date">
+            <mat-label>Fecha de afiliación</mat-label>
+            <input matInput placeholder="" value="{{usermain.dateAfiiliation}}" readonly="true">
+          </mat-form-field>
+          <mat-form-field class="example-full-width-date">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input matInput placeholder="" value="{{usermain.dateBirth}}" readonly="true">
+          </mat-form-field>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
