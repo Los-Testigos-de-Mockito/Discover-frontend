@@ -14,7 +14,7 @@ export class UsuarioService {
   constructor(private http: HttpClient) {}
 
   getUsuario(id: number) {
-    return this.http.get<userInformation>(this.ruta_servidor + '/contact/' + id);
+    return this.http.get<userInformation>(this.ruta_servidor + '/api/contact/' + id);
   }
   addUsuario(usuario: registerUserRequest) {
     return this.http.post(this.ruta_servidor + '/api/register', usuario);

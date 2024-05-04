@@ -14,14 +14,14 @@ export class AlquilerService {
   constructor(private http: HttpClient) { }
 
   postAlquiler(alquiler: alquilerRequest){
-    return this.http.post(this.ruta_servidor + "/"+ this.recurso, alquiler)
+    return this.http.post(this.ruta_servidor + "/api/"+ this.recurso, alquiler)
   }
 
   getAlquilerXUsuario(id: number){
-    return this.http.get<alquilerResponse[]>(this.ruta_servidor+'/'+this.recurso+"/"+id);
+    return this.http.get<alquilerResponse[]>(this.ruta_servidor+'/api/'+this.recurso+"/"+id);
   }
 
   putActivated(id: number){
-    return this.http.put(this.ruta_servidor+'/'+this.recurso+"/"+id, id);
+    return this.http.put(this.ruta_servidor+'/api/'+this.recurso+"/"+id, id);
   }
 }

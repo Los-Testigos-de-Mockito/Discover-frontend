@@ -12,7 +12,7 @@ export class CaracteristicasService {
 
   getCaracteristica(caracteristicaId: number) {
     return this.http.get<string[]>(
-      this.ruta_servidor + '/caracteristica/' + caracteristicaId.toString()
+      this.ruta_servidor + '/api/caracteristica/' + caracteristicaId.toString()
     );
   }
 }

@@ -7,14 +7,14 @@ import { opinionRequest } from '../models/dto/opinion';
   providedIn: 'root'
 })
 export class OpinionService {
-  
+
   ruta_servidor: string = `${environment.API_URL}`;
   recurso: string = "opinion";
 
   constructor(private http:HttpClient) { }
 
   postOpinion(opinion: opinionRequest){
-    return this.http.post(this.ruta_servidor+'/'+ this.recurso, opinion);
+    return this.http.post(this.ruta_servidor+'/api/'+ this.recurso, opinion);
   }
 
 }
