@@ -17,28 +17,28 @@ export class InmuebleService {
 
   getInmuebles() {
     return this.http.get<allInmueblesResponse[]>(
-      this.ruta_servidor + '/api/inmuebles'
+      this.ruta_servidor + '/inmuebles'
     );
   }
   getInmueble(id: number) {
     return this.http.get<getInmuebleId>(
-      this.ruta_servidor + '/api/inmuebles/' + id.toString()
+      this.ruta_servidor + '/inmuebles/' + id.toString()
     );
   }
 
   getPropertiesTypes() {
-    return this.http.get<string[]>(this.ruta_servidor + '/api/properties-types');
+    return this.http.get<string[]>(this.ruta_servidor + '/properties-types');
   }
 
   getSharedRoom() {
-    return this.http.get<string[]>(this.ruta_servidor + '/api/shared-room');
+    return this.http.get<string[]>(this.ruta_servidor + '/shared-room');
   }
 
   addInmueble(inmueble: postInmueble) {
-    return this.http.post<any>(this.ruta_servidor + '/api/inmuebles', inmueble);
+    return this.http.post<any>(this.ruta_servidor + '/inmuebles', inmueble);
   }
 
   deleteInmueble(id: number) {
-    return this.http.delete(this.ruta_servidor + '/api/inmuebles/' + id.toString());
+    return this.http.delete(this.ruta_servidor + '/inmuebles/' + id.toString());
   }
 }

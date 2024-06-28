@@ -71,3 +71,45 @@ body{
   background-color:#789626;
   color: white;
 }
+
+.email-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.email-form {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.email-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.email-form-field mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+.email-form-field mat-label {
+  font-size: 14px;
+  color: #333;
+}
+
+.email-form-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #1976d2;
+  color: white;
+  font-weight: bold;
+}
+
+.email-form-button:hover {
+  background-color: #155a9e;
+}
