@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-  API_URL: 'https://discover-backend-7dsv.onrender.com/api',
+  API_URL: 'https://discover-backend-1.onrender.com/api',
 };
