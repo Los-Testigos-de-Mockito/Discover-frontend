@@ -14,14 +14,14 @@ export class UsuarioService {
   constructor(private http: HttpClient) {}
 
   getUsuario(id: number) {
-    return this.http.get<userInformation>(this.ruta_servidor + '/api/contact/' + id);
+    return this.http.get<userInformation>(this.ruta_servidor + '/contact/' + id);
   }
   addUsuario(usuario: registerUserRequest) {
-    return this.http.post(this.ruta_servidor + '/api/register', usuario);
+    return this.http.post(this.ruta_servidor + '/register', usuario);
   }
 
   login(loginDto: loginDto) {
-    return this.http.post<any>(this.ruta_servidor + '/api/login', loginDto).pipe(
+    return this.http.post<any>(this.ruta_servidor + '/login', loginDto).pipe(
       tap((res) => {
         localStorage.setItem('token', res.token);
         localStorage.setItem('user_id', res.usuario_id);
